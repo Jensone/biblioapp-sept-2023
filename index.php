@@ -6,6 +6,7 @@ require 'templates/header.html.php';
 
 
 <div class="m-2 d-flex gap-4">
+    <!-- Liste de livres -->
     <div class="biblioapp-dashboard-books col-6 border rounded p-2 d-flex gap-2">
         <div class="card col-5" style="background-image: url('https://placeholder.com/200x100')">
             <div class="card-body">
@@ -53,8 +54,38 @@ require 'templates/header.html.php';
             </div>
         </div>
     </div>
+    <!-- Liste de réservations -->
     <div class="col-6 border border-rounded p-1">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi odio, nesciunt veniam cumque, quis alias sit quidem labore corrupti facere quas suscipit debitis obcaecati voluptatum cupiditate veritatis? Obcaecati, molestiae et quia quod facilis corporis dicta libero. Expedita aspernatur non esse natus. Blanditiis sequi dicta aut nihil culpa quo, ab at, error optio distinctio, reiciendis recusandae corrupti vitae sint veniam odit! Eum, minima, expedita harum obcaecati facere quam voluptatum perspiciatis labore debitis temporibus nemo, quis odit? Nisi tenetur voluptate repudiandae, eius ducimus dignissimos amet. A recusandae cum, cumque, iusto consectetur provident numquam laborum magni temporibus fugiat mollitia vitae porro, possimus qui.
+        <h3 class="text-center">Réservations en cours</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
