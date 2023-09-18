@@ -4,91 +4,132 @@ require 'templates/header.html.php';
 
 ?>
 
-
-<div class="m-2 d-flex gap-4">
-    <!-- Liste de livres -->
-    <div class="biblioapp-dashboard-books col-6 border rounded p-2 d-flex gap-2">
-        <div class="card col-5" style="background-image: url('https://placeholder.com/200x100')">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Voir</a>
-                <a href="#" class="btn btn-sm btn-outline-primary">Réserver</a>
-            </div>
-        </div>
-        <div class="card col-5" style="background-image: url('https://placeholder.com/200x100')">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Voir</a>
-                <a href="#" class="btn btn-sm btn-outline-primary">Réserver</a>
-            </div>
-        </div>
-        <div class="card col-5" style="background-image: url('https://placeholder.com/200x100')">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Voir</a>
-                <a href="#" class="btn btn-sm btn-outline-primary">Réserver</a>
-            </div>
-        </div>
-        <div class="card col-5" style="background-image: url('https://placeholder.com/200x100')">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Voir</a>
-                <a href="#" class="btn btn-sm btn-outline-primary">Réserver</a>
-            </div>
-        </div>
-        <div class="card col-5" style="background-image: url('https://placeholder.com/200x100')">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Voir</a>
-                <a href="#" class="btn btn-sm btn-outline-primary">Réserver</a>
-            </div>
+<!-- Liste de livres -->
+<h2 class="text-center mt-4">Liste des livres</h2>
+<div class="biblioapp-dashboard-books rounded p-3 m-4 d-flex gap-2 bg-light shadow switch-row">
+    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
+        <div class="card-body text-light">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
+            <a href="#" class="btn btn-sm btn-success">Réserver</a>
         </div>
     </div>
-    <!-- Liste de réservations -->
-    <div class="col-6 border border-rounded p-1">
-        <h3 class="text-center">Réservations en cours</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
+        <div class="card-body text-light">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
+            <a href="#" class="btn btn-sm btn-success">Réserver</a>
+        </div>
+    </div>
+    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
+        <div class="card-body text-light">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
+            <a href="#" class="btn btn-sm btn-success">Réserver</a>
+        </div>
+    </div>
+    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
+        <div class="card-body text-light">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
+            <a href="#" class="btn btn-sm btn-success">Réserver</a>
+        </div>
+    </div>
+    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
+        <div class="card-body text-light">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
+            <a href="#" class="btn btn-sm btn-success">Réserver</a>
+        </div>
+    </div>
+</div>
+<p class="text-center mb-4">
+    <a href="books.php" class="btn btn-outline-primary text-center">Voir tous les livres</a>
+</p>
+
+<hr>
+
+<!-- Liste de réservations -->
+<h3 class="text-center mt-4">Réservations en cours</h2>
+<div class="rounded p-3 m-4 bg-light shadow">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p class="text-center mb-4">
+    <a href="reservations.php" class="btn btn-outline-primary text-center">Voir toutes les réservations</a>
+</p>
+
+<hr>
+
+<!-- Liste de actions rapides -->
+<h3 class="text-center mt-4">Actions rapides</h2>
+<div class="d-flex text-center justify-content-center p-4 switch-row">
+    <div class="col-md-3 col-sm-12 border rounded p-3 m-4">
+        <p>
+            Vous pouvez ajouter un livre à partir de cette page en quelques clics.
+        </p>
+        <a href="books.php" class="btn btn-outline-primary text-center">
+            <i class="bi bi-plus-circle"></i>
+            Ajouter un livre
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-12 border rounded p-3 m-4">
+        <p>
+            Vous pouvez ajouter une réservation en cliquant sur le bouton.
+        </p>
+        <a href="reservations.php" class="btn btn-outline-primary text-center">
+            <i class="bi bi-plus-circle"></i>
+            Ajouter une réservation
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-12 border rounded p-3 m-4">
+        <p>
+            Un nouvel adhérent ? Vous pouvez l'ajouter à partir de cette page.
+        </p>
+        <a href="clients.php" class="btn btn-outline-primary text-center">
+            <i class="bi bi-plus-circle"></i>
+            Ajouter un client
+        </a>
     </div>
 </div>
 
-
 <?php
+
 require 'templates/footer.html.php';
