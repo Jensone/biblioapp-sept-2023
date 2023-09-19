@@ -227,10 +227,11 @@ class Book
         // On récupère la connexion à la base de données
         $db = Connect::connect();
 
-        // Requête SQL pour récupérer tous les livres
-        $query = $db->prepare("INSERT INTO book (title, author, category, year, isbn, slug) VALUES (:title, :author, :category, :year, :isbn, :slug);");
-
-        // $query = $db->query($sql);
+        // On prépare la requête SQL
+        $query = $db->prepare(
+            "INSERT INTO book (title, author, category, year, isbn, slug) 
+            VALUES (:title, :author, :category, :year, :isbn, :slug);"
+        );
 
         // On lie les valeurs de l'objet aux paramètres de la requête SQL
         $query->bindValue(':title', $obj->getTitle(), PDO::PARAM_STR);
