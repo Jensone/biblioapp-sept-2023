@@ -1,57 +1,15 @@
 <?php
 
-require 'templates/header.html.php';
+require_once 'templates/header.html.php';
 
 ?>
 
 <!-- Liste de livres -->
 <h2 class="text-center mt-4">Liste des livres</h2>
 <div class="biblioapp-dashboard-books rounded p-3 m-4 d-flex gap-2 bg-light shadow switch-row">
-    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
-        <div class="card-body text-light">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
-            <a href="#" class="btn btn-sm btn-success">Réserver</a>
-        </div>
-    </div>
-    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
-        <div class="card-body text-light">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
-            <a href="#" class="btn btn-sm btn-success">Réserver</a>
-        </div>
-    </div>
-    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
-        <div class="card-body text-light">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
-            <a href="#" class="btn btn-sm btn-success">Réserver</a>
-        </div>
-    </div>
-    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
-        <div class="card-body text-light">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
-            <a href="#" class="btn btn-sm btn-success">Réserver</a>
-        </div>
-    </div>
-    <div class="card col-md-3 col-sm-5 col-sm-12 card-bg">
-        <div class="card-body text-light">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-outline-light">Voir</a>
-            <a href="#" class="btn btn-sm btn-success">Réserver</a>
-        </div>
-    </div>
+    
+    <?php include 'templates/_partials/_books-card.html.php'; ?>
+
 </div>
 <p class="text-center mb-4">
     <a href="books.php" class="btn btn-outline-primary text-center">Voir tous les livres</a>
@@ -133,3 +91,4 @@ require 'templates/header.html.php';
 <?php
 
 require 'templates/footer.html.php';
+
