@@ -1,12 +1,9 @@
 <?php
-
-// Chargement de la classe Connect 
-
-use PgSql\Lob;
+/**
+ * Classe Book, cette classe permet de gérer les livres
+ */
 
 require 'configuration/Connect.php';
-
-// Chargement de la classe Slug
 require 'services/Slug.php';
 
 class Book
@@ -244,12 +241,7 @@ class Book
         // On exécute la requête SQL
         $query->execute();
 
-        if ($query == true) {
-            // On redirige vers la même page avec un message de succès
-            header('Location: books.php?success=1');
-        } else {
-            // On redirige vers la même page avec un message de succès
-            header('Location: books.php?success=0');
-        }
+        // On redirige vers la page des livres
+        header('Location: books.php');
     }
 }

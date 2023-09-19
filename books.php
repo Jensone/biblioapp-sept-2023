@@ -4,29 +4,18 @@ require 'classes/Book.php';
 $totalBooks = count(Book::getBooks());
 
 // Traitement du formulaire
-if(!empty($_POST)) {
+if (!empty($_POST)) {
     $book = new Book();
     $book->setTitle($_POST['title'])
         ->setAuthor($_POST['author'])
         ->setCategory($_POST['category'])
         ->setYear($_POST['year'])
         ->setIsbn($_POST['isbn'])
-        ->setSlug($_POST['title'])
-        ;
-
-    // var_dump($book);
+        ->setSlug($_POST['title']);
     Book::addBook($book);
 }
 
-if(isset($_GET['success']) && $_GET['success'] === 1) {
-    echo '<div class="alert alert-success" role="alert">Enregistrement réussi</div>';
-} else if(isset($_GET['success']) && $_GET['success'] === 0) {
-    echo '<div class="alert alert-danger" role="alert">Une erreur s\'est produite. Merci de réessayer.</div>';
-}
-
-
 require_once 'templates/header.html.php';
-
 
 ?>
 
@@ -43,7 +32,7 @@ require_once 'templates/header.html.php';
     </button>
 </div>
 
-<div class="row rounded p-3 m-4 gap-4 bg-light shadow switch-row justify-content-center">
+<div class="row rounded p-3 m-4 gap-4 switch-row justify-content-center">
     <?php include 'templates/_partials/_books-card.html.php'; ?>
 </div>
 
@@ -89,7 +78,7 @@ require_once 'templates/header.html.php';
                         <input required name="isbn" type="text" class="form-control" id="isbn" aria-describedby="isbnHelp">
                         <div id="isbnHelp" class="form-text">Format attendu : "978-2-1234-5680-3"</div>
                     </div> <!-- Fini -->
-                    
+
                     <button type="submit" class="btn btn-success">
                         <i class="bi bi-save"></i>
                         Enregistrer

@@ -24,17 +24,3 @@ foreach (Book::getBooks() as $book) { ?>
     </div>
 
 <?php }
-
-
-// foreach (Book::getBooks() as $book) {
-//     echo '<div class="card col-md-3 col-sm-5 col-sm-12 card-bg">';
-//     echo '    <div class="card-body text-light">';
-//     echo '        <h5 class="card-title">' . $book() . '</h5>';
-//     echo '        <h6 class="card-subtitle mb-2">Card subtitle</h6>';
-//     echo '        <p class="card-text">Some qu.</p>';
-//     echo '        <a href="#" class="btn btn-sm btn-outline-light">Voir</a>';
-//     echo '        <a href="#" class="btn btn-sm btn-success">Réserver</a>';
-//     echo '    </div>';
-//     echo '</div>';
-// }
-
