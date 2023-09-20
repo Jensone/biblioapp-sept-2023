@@ -10,11 +10,18 @@ require 'templates/header.html.php';
 
 $book = Book::getOneBook($_GET['slug']);
 
-if (isset($_POST['delete']) || isset($_POST['edit'])) {
-    if ($_POST['delete']){
-        var_dump($_POST);
-    } else if ($_POST['edit']){
-        var_dump($_POST); 
+if (isset($_POST['id'])) {
+    if (isset($_POST['delete'])){
+        Book::deleteBook($_POST['id']);
+    } else if (isset($_POST['edit'])){
+        $book = new Book();
+        $book->setTitle($_POST['title'])
+            ->setAuthor($_POST['author'])
+            ->setCategory($_POST['category'])
+            ->setYear($_POST['year'])
+            ->setIsbn($_POST['isbn'])
+            ->setSlug($_POST['title']);
+        Book::editBook($book, $_POST['id']); 
     }
 }
 

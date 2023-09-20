@@ -264,6 +264,23 @@ class Book
         header('Location: books.php');
     } // Fini
 
+    // Méthode pour modifier un livre
+    public static function editBook($obj, $id): void
+    {
+        $db = Connect::connect();
+        $query = $db->prepare("UPDATE book SET title = :title, author = :author, category = :category, year = :year, isbn = :isbn, slug = :slug WHERE id = :id;");
+
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+        $query->bindValue(':title', $obj->getTitle(), PDO::PARAM_STR);
+        $query->bindValue(':author', $obj->getAuthor(), PDO::PARAM_STR);
+        $query->bindValue(':category', $obj->getCategory(), PDO::PARAM_STR);
+        $query->bindValue(':year', $obj->getYear(), PDO::PARAM_INT);
+        $query->bindValue(':isbn', $obj->getIsbn(), PDO::PARAM_STR);
+        $query->bindValue(':slug', $obj->getSlug(), PDO::PARAM_STR);
+        $query->execute();
+        header('Location: book.php?slug=' . $obj->getSlug());
+    } 
+
     // Méthode pour supprimer un livre
     public static function deleteBook(): void
     {

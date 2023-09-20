@@ -1,13 +1,14 @@
 <?php
 
-require_once 'vendor/autoload.php';
-require_once 'classes/Book.php';
+require 'vendor/autoload.php';
+// require './vendor/fakerphp/faker/src/Faker/Factory.php';
+// require './vendor/fakerphp/faker/src/autoload.php';
 use Faker\Factory;
 
 /**
  * DONE: PDO
- * TODO: FakerPHP
- * TODO: Boucle pour créer des livres
+ * DONE: FakerPHP
+ * DONE: Boucle pour créer des livres
  */
 
 // PDO
@@ -24,8 +25,11 @@ try {
     echo "Erreur de connexion : " . $e->getMessage();
 }
 
+// FakerPHP
+$faker = Factory::create('fr_FR');
+
 // Création de la table books
-$sql = "CREATE TABLE IF NOT EXISTS books (
+$sqlBook = "CREATE TABLE IF NOT EXISTS books (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
@@ -43,53 +47,83 @@ $sql = "CREATE TABLE IF NOT EXISTS books (
     slug VARCHAR(255) NOT NULL
 );";
 
-// Exécution de la requête
-// try {
-//     $db->exec($sql);
-//     echo "Table créée avec succès";
-// } catch (PDOException $e) {
-//     echo "Erreur lors de la création de la table : " . $e->getMessage();
-// }
+// Création de la table books
+$sqlClient = $db->prepare("CREATE TABLE IF NOT EXISTS clients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    city VARCHAR(255),
+    country VARCHAR(255),
+    year INT NOT NULL,
+    deposit BOOLEAN
+);");
 
-$sqlBook = "INSERT INTO Book (title, author, description, cover, category, price, year, editor, language, pages, format, isbn, active, slug) VALUES (:title, :author, :description, :cover, :category, :price, :year, :editor, :language, :pages, :format, :isbn, :active, :slug);";
+$sqlClient->execute();
 
-// FakerPHP
-$faker = Factory::create('fr_FR');
-
-for ($i=0; $i < 100; $i++) { 
-    $book = new Book();
-    $book->setTitle($faker->sentence(3));
-    $book->setAuthor($faker->name());
-    $book->setDescription($faker->text(200));
-    $book->setCover($faker->imageUrl(200, 300));
-    $book->setCategory($faker->randomElement(['roman', 'poésie', 'théâtre', 'essai', 'biographie']));
-    $book->setPrice($faker->numberBetween(5, 30));
-    $book->setYear($faker->numberBetween(1900, 2021));
-    $book->setEditor($faker->company());
-    $book->setLanguage($faker->randomElement(['français', 'anglais', 'espagnol', 'italien']));
-    $book->setPages($faker->numberBetween(50, 500));
-    $book->setFormat($faker->randomElement(['poche', 'broché', 'relié']));
-    $book->setIsbn($faker->isbn13());
-    $book->setActive($faker->boolean());
-    $book->setSlug($faker->slug());
-
-    $stmt = $db->prepare($sqlBook);
-    $stmt->bindValue(':title', $book->getTitle());
-    $stmt->bindValue(':author', $book->getAuthor());
-    $stmt->bindValue(':description', $book->getDescription());
-    $stmt->bindValue(':cover', $book->getCover());
-    $stmt->bindValue(':category', $book->getCategory());
-    $stmt->bindValue(':price', $book->getPrice());
-    $stmt->bindValue(':year', $book->getYear());
-    $stmt->bindValue(':editor', $book->getEditor());
-    $stmt->bindValue(':language', $book->getLanguage());
-    $stmt->bindValue(':pages', $book->getPages());
-    $stmt->bindValue(':format', $book->getFormat());
-    $stmt->bindValue(':isbn', $book->getIsbn());
-    $stmt->bindValue(':active', $book->getActive());
-    $stmt->bindValue(':slug', $book->getSlug());
-    
-    $stmt->execute();
-    
-    echo 'C\est fait n'.$i;
+for ($i=0; $i < 50; $i++) { 
+    $client = $db->prepare("INSERT INTO clients (
+        firstname,
+        lastname,
+        address,
+        city,
+        country,
+        year,
+        deposit
+    ) VALUES (
+        '" . $faker->firstName() . "',
+        '" . $faker->lastName() . "',
+        '" . $faker->address() . "',
+        '" . $faker->city() . "',
+        'France',
+        " . $faker->numberBetween(1950, 2023) . ",
+        " . ($faker->boolean() ? 1 : 0) . "
+    );");
+    $client->execute();
+    echo 'Client n°' . $i . ' créé<br>';
+    if ($i === 49) {
+        echo 'c\'est bientôt fini<br>';
+    }
 }
+
+
+// $sqlBook = "INSERT INTO Book (title, author, description, cover, category, price, year, editor, language, pages, format, isbn, active, slug) VALUES (:title, :author, :description, :cover, :category, :price, :year, :editor, :language, :pages, :format, :isbn, :active, :slug);";
+
+
+// for ($i = 0; $i < 100; $i++) {
+//     $book = new Book();
+//     $book->setTitle($faker->sentence(3));
+//     $book->setAuthor($faker->name());
+//     $book->setDescription($faker->text(200));
+//     $book->setCover($faker->imageUrl(200, 300));
+//     $book->setCategory($faker->randomElement(['roman', 'poésie', 'théâtre', 'essai', 'biographie']));
+//     $book->setPrice($faker->numberBetween(5, 30));
+//     $book->setYear($faker->numberBetween(1900, 2021));
+//     $book->setEditor($faker->company());
+//     $book->setLanguage($faker->randomElement(['français', 'anglais', 'espagnol', 'italien']));
+//     $book->setPages($faker->numberBetween(50, 500));
+//     $book->setFormat($faker->randomElement(['poche', 'broché', 'relié']));
+//     $book->setIsbn($faker->isbn13());
+//     $book->setActive($faker->boolean());
+//     $book->setSlug($faker->slug());
+
+//     $stmt = $db->prepare($sqlBook);
+//     $stmt->bindValue(':title', $book->getTitle());
+//     $stmt->bindValue(':author', $book->getAuthor());
+//     $stmt->bindValue(':description', $book->getDescription());
+//     $stmt->bindValue(':cover', $book->getCover());
+//     $stmt->bindValue(':category', $book->getCategory());
+//     $stmt->bindValue(':price', $book->getPrice());
+//     $stmt->bindValue(':year', $book->getYear());
+//     $stmt->bindValue(':editor', $book->getEditor());
+//     $stmt->bindValue(':language', $book->getLanguage());
+//     $stmt->bindValue(':pages', $book->getPages());
+//     $stmt->bindValue(':format', $book->getFormat());
+//     $stmt->bindValue(':isbn', $book->getIsbn());
+//     $stmt->bindValue(':active', $book->getActive());
+//     $stmt->bindValue(':slug', $book->getSlug());
+
+//     $stmt->execute();
+
+//     echo 'C\est fait n' . $i;
+// }
