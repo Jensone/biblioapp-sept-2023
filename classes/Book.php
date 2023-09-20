@@ -216,7 +216,26 @@ class Book
 
         // On retourne les livres
         return $books;
-    }
+    } // Fini
+    
+    // Méthode static pour récupérer un seul livre
+    public static function getOneBook($slug): array
+    {
+        // On récupère la connexion à la base de données
+        $db = Connect::connect();
+
+        // Requête SQL pour récupérer un livre et la préparée
+        $query = $db->prepare("SELECT * FROM book WHERE slug = :slug");
+
+        // On lie le slug aux paramètres de la requête SQL
+        $query->bindValue(':slug', $slug, PDO::PARAM_STR);
+
+        // On exécute la requête SQL
+        $query->execute();
+
+        // On récupère le livre et on le retourne
+        return $query->fetch(PDO::FETCH_ASSOC);
+    } // Fini
 
     // Méthode pour ajouter un livre
     public static function addBook($obj): void
@@ -243,5 +262,17 @@ class Book
 
         // On redirige vers la page des livres
         header('Location: books.php');
-    }
+    } // Fini
+
+    // Méthode pour supprimer un livre
+    public static function deleteBook(): void
+    {
+        $db = Connect::connect();
+        $query = $db->prepare("DELETE FROM book WHERE id = :id");
+        $query->bindValue(':id', $_POST['id'], PDO::PARAM_INT);
+        $query->execute();
+
+        header('Location: books.php');
+    } // Fini
+    
 }

@@ -18,7 +18,7 @@ foreach (Book::getBooks() as $book) { ?>
             <p class="card-text">
                 <?= substr($book['description'], 0, 110) ;?>...
             </p>
-            <a href="/<?= $book['slug'] ;?>.php" class="btn btn-sm btn-outline-light">Voir</a>
+            <a href="/book.php?slug=<?= $book['slug'] ;?>" class="btn btn-sm btn-outline-light">Voir</a>
             <a href="#" class="btn btn-sm btn-success">Réserver</a>
         </div>
     </div>

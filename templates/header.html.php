@@ -70,4 +70,3 @@
             </div>
         </aside>
         <main class="col-md-10 col-sm-12 offset-md-2 offset-sm-0 mb-4">
-            <!-- <?= $content ?> -->
